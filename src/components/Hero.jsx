@@ -1,12 +1,50 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const roles = ["Web Developer", "Web Designer", "WordPress Developer"];
+
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [speed, setSpeed] = useState(150);
+
+  useEffect(() => {
+    const currentRole = roles[index % roles.length];
+
+    const handleTyping = () => {
+      if (!isDeleting) {
+        // typing
+        setText(currentRole.substring(0, text.length + 1));
+        setSpeed(150);
+
+        if (text === currentRole) {
+          setIsDeleting(true);
+          setSpeed(1000); // pause before deleting
+        }
+      } else {
+        // deleting
+        setText(currentRole.substring(0, text.length - 1));
+        setSpeed(80);
+
+        if (text === "") {
+          setIsDeleting(false);
+          setIndex((prev) => prev + 1);
+          setSpeed(300);
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTyping, speed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, index, speed, roles]);
+
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center bg-[#000000] text-white px-6 overflow-hidden"
     >
-      {/* Glow background effect (FIXED) */}
+      {/* Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#14213d] blur-3xl opacity-40 rounded-full" />
 
       <motion.div
@@ -20,9 +58,12 @@ export default function Hero() {
           Frontend Developer
         </p>
 
-        {/* Heading */}
+        {/* Typing Text */}
         <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-          Hi, I'm a <span className="text-[#fca311]">Developer</span>
+          Hi, I'm a{" "}
+          <span className="text-[#fca311] border-r-2 border-[#fca311] pr-2 animate-pulse">
+            {text}
+          </span>
         </h1>
 
         {/* Subtitle */}
@@ -48,7 +89,7 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Small info */}
+        {/* Footer note */}
         <div className="mt-10 text-sm text-gray-400">
           Available for freelance work ✨
         </div>
