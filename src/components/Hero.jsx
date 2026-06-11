@@ -4,10 +4,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-[#000000] text-white px-6"
+      className="relative min-h-screen flex items-center justify-center bg-[#000000] text-white px-6 overflow-hidden"
     >
-      {/* Glow background effect */}
-      <div className="absolute w-[500px] h-[500px] bg-[#14213d] blur-3xl opacity-40 rounded-full"></div>
+      {/* Glow background effect (FIXED) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#14213d] blur-3xl opacity-40 rounded-full" />
 
       <motion.div
         initial={{ opacity: 0, y: 60 }}
