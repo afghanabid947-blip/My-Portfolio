@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const githubProjects = [
   {
     name: "Testimonial slider",
-    link: "https://github.com/afghanabid947-blip/My_Js_Beginner_Projects/blob/main/21%20)%20Testimonial%20Slider/index.html",
+    link: "https://testimonials-umber.vercel.app/",
   },
   {
     name: "Acordion",
