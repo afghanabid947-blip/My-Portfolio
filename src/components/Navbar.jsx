@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
           {/* LOGO */}
           <h1 className="text-xl md:text-2xl font-bold text-white">
-            My<span className="text-[#fca311]">Portfolio</span>
+            Abid<span className="text-[#fca311]">ullah</span>
           </h1>
 
           {/* DESKTOP MENU */}

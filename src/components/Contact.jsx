@@ -35,7 +35,10 @@ export default function Contact() {
   }
 
   return (
-    <section className="relative py-24 bg-[#000000] text-white px-6 overflow-hidden">
+    <section
+      id="contact"
+      className="relative py-24 bg-[#000000] text-white px-6 overflow-hidden"
+    >
       {/* 🌌 PARTICLES BACKGROUND */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(25)].map((_, i) => (
